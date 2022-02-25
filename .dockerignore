@@ -1,0 +1,16 @@
+# Git
+.git/
+.gitignore
+
+# Containerization
+Dockerfile
+.dockerignore
+
+# JetBrain
+.idea/
+
+# DotNet
+*/bin/
+*/obj/
+*/Properties/
+*/appsettings.Development.json
