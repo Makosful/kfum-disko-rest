@@ -1,9 +1,14 @@
+using Kfum.Disko.Core.ApplicationServices.Interfaces;
+using Kfum.Disko.Core.Entities;
+
 namespace Kfum.Disko.Ui.RestApi.GraphQL;
 
 public class Query
 {
-    public string Foo()
+    [UseFiltering]
+    [UseSorting]
+    public IQueryable<Member> GetMember([Service] IMemberService service)
     {
-        return "Bar";
+        return service.MemberQuery();
     }
 }
