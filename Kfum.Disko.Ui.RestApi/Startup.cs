@@ -29,7 +29,7 @@ public class Startup
         services.AddControllers();
         services.AddGraphQLServer()
             .AddQueryType<Query>()
-            // .AddMutationType<Mutation>()
+            .AddMutationType<Mutation>()
             // .AddSubscriptionType<Subscription>()
             .AddFiltering()
             .AddSorting()

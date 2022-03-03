@@ -17,4 +17,14 @@ public class ArrangementService : IArrangementService
     {
         return _repository.Query();
     }
+
+    Arrangement IArrangementService.SetActiveStatus(long inputId, bool inputActive)
+    {
+        var arrangement = _repository.Query().FirstOrDefault(x => x.Id == inputId);
+        if (arrangement is null) throw new ArgumentNullException();
+
+        arrangement.IsActive = inputActive;
+        _repository.SaveOrUpdate(arrangement);
+        return arrangement;
+    }
 }
