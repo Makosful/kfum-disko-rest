@@ -11,4 +11,11 @@ public class Query
     {
         return service.MemberQuery();
     }
+
+    [UseFiltering]
+    [UseSorting]
+    public IQueryable<Arrangement> GetArrangements([Service] IArrangementService service)
+    {
+        return service.ArrangementQuery();
+    }
 }

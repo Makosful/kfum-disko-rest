@@ -9,5 +9,6 @@ public static class DependencyInjection
     public static void AddDatabaseDependencies(this IServiceCollection services)
     {
         services.AddScoped<IMemberRepository, MemberRepository>();
+        services.AddScoped<IArrangementRepository, ArrangementRepository>();
     }
 }
