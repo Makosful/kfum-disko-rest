@@ -8,7 +8,7 @@ public abstract class NHibernateMap<TEntity> : ClassMap<TEntity> where TEntity :
     protected NHibernateMap()
     {
         Cache.ReadWrite();
-        Id(x => x.Id).GeneratedBy.Identity();
+        Id(x => x.Id).GeneratedBy.GuidComb();
         Map(x => x.Deleted);
     }
 }

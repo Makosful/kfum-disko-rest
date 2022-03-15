@@ -18,7 +18,7 @@ public class ArrangementService : IArrangementService
         return _repository.Query();
     }
 
-    Arrangement IArrangementService.SetActiveStatus(long inputId, bool inputActive)
+    Arrangement IArrangementService.SetActiveStatus(Guid inputId, bool inputActive)
     {
         var arrangement = _repository.Query().FirstOrDefault(x => x.Id == inputId);
         if (arrangement is null) throw new ArgumentNullException();

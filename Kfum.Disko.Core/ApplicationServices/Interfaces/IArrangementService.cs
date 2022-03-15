@@ -6,5 +6,5 @@ public interface IArrangementService
 {
     IQueryable<Arrangement> ArrangementQuery();
 
-    Arrangement SetActiveStatus(long inputId, bool inputActive);
+    Arrangement SetActiveStatus(Guid inputId, bool inputActive);
 }
