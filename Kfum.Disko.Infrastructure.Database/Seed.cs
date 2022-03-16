@@ -70,9 +70,66 @@ public static class Seed
 
         session.Query<Arrangement>().Delete();
 
-        session.SaveOrUpdate(new Arrangement {Titel = "Disko 2020", IsActive = false});
-        session.SaveOrUpdate(new Arrangement {Titel = "Disko 2021", IsActive = false});
-        session.SaveOrUpdate(new Arrangement {Titel = "Disko 2022", IsActive = true});
+        session.SaveOrUpdate(new Arrangement
+        {
+            IsActive = true,
+            Title = "Disko 2022",
+            Date = DateTime.Today.AddDays(5),
+            StartTime = DateTime.Today.AddDays(5).AddHours(19),
+            EndTime = DateTime.Today.AddDays(5).AddHours(22),
+            DoorsOpen = DateTime.Today.AddDays(5).AddHours(18).AddMinutes(45),
+            OnlineSale = 0,
+            FirstEntry = 45,
+            NormalEntry = 35,
+            NormalEntryWithoutCard = 45,
+            FreeEntryWithoutCard = 10,
+            BirthdayEntry = 35,
+            Capacity = 300,
+            IsOnlineSale = false,
+            Location = "KFUM & KFUK",
+            Address = "Kirkegade 70, 6700 Esbjerg",
+            Description = "",
+        });
+        session.SaveOrUpdate(new Arrangement
+        {
+            IsActive = false,
+            Title = "Disko 2021",
+            Date = DateTime.Today.AddDays(5),
+            StartTime = DateTime.Today.AddDays(5).AddHours(19).AddYears(-1),
+            EndTime = DateTime.Today.AddDays(5).AddHours(22).AddYears(-1),
+            DoorsOpen = DateTime.Today.AddDays(5).AddHours(18).AddMinutes(45).AddYears(-1),
+            OnlineSale = 0,
+            FirstEntry = 45,
+            NormalEntry = 35,
+            NormalEntryWithoutCard = 45,
+            FreeEntryWithoutCard = 10,
+            BirthdayEntry = 35,
+            Capacity = 300,
+            IsOnlineSale = false,
+            Location = "KFUM & KFUK",
+            Address = "Kirkegade 70, 6700 Esbjerg",
+            Description = "",
+        });
+        session.SaveOrUpdate(new Arrangement
+        {
+            IsActive = false,
+            Title = "Disko 2020",
+            Date = DateTime.Today.AddDays(5),
+            StartTime = DateTime.Today.AddDays(5).AddHours(19).AddYears(-2),
+            EndTime = DateTime.Today.AddDays(5).AddHours(22).AddYears(-2),
+            DoorsOpen = DateTime.Today.AddDays(5).AddHours(18).AddMinutes(45).AddYears(-2),
+            OnlineSale = 0,
+            FirstEntry = 45,
+            NormalEntry = 35,
+            NormalEntryWithoutCard = 45,
+            FreeEntryWithoutCard = 10,
+            BirthdayEntry = 35,
+            Capacity = 300,
+            IsOnlineSale = false,
+            Location = "KFUM & KFUK",
+            Address = "Kirkegade 70, 6700 Esbjerg",
+            Description = "",
+        });
 
         trans.Commit();
     }
