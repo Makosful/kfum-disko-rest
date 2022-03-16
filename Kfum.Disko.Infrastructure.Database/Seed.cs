@@ -1,4 +1,5 @@
 using Kfum.Disko.Core.Entities;
+using Kfum.Disko.Core.Entities.Enums;
 using NHibernate;
 using NHibernate.Linq;
 
@@ -21,10 +22,41 @@ public static class Seed
 
         session.Query<Member>().Delete();
 
-        session.SaveOrUpdate(new Member {Name = "Foo", Deleted = false});
-        session.SaveOrUpdate(new Member {Name = "Bar", Deleted = true});
-        session.SaveOrUpdate(new Member {Name = "FooBar", Deleted = false});
-        session.SaveOrUpdate(new Member {Name = "Zar", Deleted = false});
+        session.SaveOrUpdate(new Member
+        {
+            Deleted = false,
+            FirstName = "Foo",
+            LastName = "Bar",
+            Gender = Gender.Male,
+            Address = "Test Street 1",
+            ZipCode = "1234"
+        });
+        session.SaveOrUpdate(new Member
+        {
+            Deleted = false,
+            FirstName = "Lorem",
+            LastName = "Ipsum",
+            Gender = Gender.Female,
+            Address = "Ancient Latin Country 78",
+            ZipCode = "5678"
+        });
+        session.SaveOrUpdate(new Member
+        {
+            Deleted = false,
+            FirstName = "Cthulhu",
+            LastName = "The Messenger",
+            Gender = Gender.Unknown,
+            Address = "Void",
+            ZipCode = "XXXX"
+        });
+        session.SaveOrUpdate(new Member
+        {
+            Deleted = true,
+            FirstName = "John",
+            LastName = "Doe",
+            Address = "Apple Street 99",
+            ZipCode = "9876"
+        });
 
         trans.Commit();
     }
