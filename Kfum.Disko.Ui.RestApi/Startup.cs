@@ -34,6 +34,15 @@ public class Startup
             .AddFiltering()
             .AddSorting()
             .AddInMemorySubscriptions(); // Microsoft.DependencyInjection
+
+        services.AddCors(x =>
+        {
+            x.AddDefaultPolicy(y=>{
+                y.AllowAnyOrigin();
+                y.AllowAnyMethod();
+                y.AllowAnyHeader();
+            });
+        });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -41,11 +50,13 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-            using var session = NHibernateSessionManager.GetCurrentSession();
-            Seed.SeedDatabase(session);
         }
+        
+        using var session = NHibernateSessionManager.GetCurrentSession();
+        Seed.SeedDatabase(session);
 
         app.UseRouting();
+        app.UseCors();
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
